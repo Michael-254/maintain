@@ -26,15 +26,15 @@
                         @csrf
                         <input type="hidden" name="machine_name" value="{{$comment->machine_name}}">
                         <input type="hidden" name="number_plate" value="{{$comment->number_plate}}">
-                    <td>{{$comment->date}}</td>
-                    <td>{{$comment->machine_name}}</td>
-                    <td>{{$comment->number_plate}}</td>
-                    <td>{{$comment->type}}</td>
-                    <td>{{$comment->status}}</td>
-                    <td>{{$comment->admincomment}}</td>
-                    <td>
-                    <button class="px-2 py-1 text-white font-light tracking-wider bg-green-900 rounded" type="submit">View</button>
-                    </td>
+                        <td>{{$comment->date}}</td>
+                        <td>{{$comment->machine_name}}</td>
+                        <td>{{$comment->number_plate}}</td>
+                        <td>{{$comment->type}}</td>
+                        <td>{{$comment->status}}</td>
+                        <td>{{$comment->admincomment}}</td>
+                        <td>
+                            <button class="px-2 py-1 text-white font-light tracking-wider bg-green-900 rounded" type="submit">View</button>
+                        </td>
                     </form>
                 </tr>
                 @endforeach
@@ -47,4 +47,3 @@
         </section>
     </div>
 </div>
-

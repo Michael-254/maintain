@@ -69,6 +69,8 @@
                 <option value="Kiambere">Kiambere</option>
                 <option value="Nyongoro">Nyongoro</option>
                 <option value="Dokolo">Dokolo</option>
+                <option value="7 Forks">7 Forks</option>
+                <option value="GIC">GIC</option>
             </select>
             @error('site') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>

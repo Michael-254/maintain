@@ -4,11 +4,11 @@
   </div>
   <div class="card-body">
     <div>
-    @if(session()->has('message'))
-            <div class="alert alert-success">{{session()->get('message')}}</div>
-            @elseif(session()->has('error'))
-            <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
-            @endif
+      @if(session()->has('message'))
+      <div class="alert alert-success">{{session()->get('message')}}</div>
+      @elseif(session()->has('error'))
+      <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
+      @endif
     </div>
     <section class="m-1 p-2 w-12/12 flex flex-col rounded border p-1 sm:pt-0">
       <h1 class="font-bold text-xl text-center text-green-900">Machines Available</h1>

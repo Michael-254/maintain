@@ -82,11 +82,11 @@
             </li>
             <li><a href="{{route('approve.plan')}}"><i class="icon-medium icon-ok"></i><span>Approve Schedules</span>
               </a></li>
-              <li><a href="{{route('report.view')}}"><i class="icon-list-alt "></i><span>Received Reports</span>
+            <li><a href="{{route('report.view')}}"><i class="icon-list-alt "></i><span>Received Reports</span>
               </a></li>
-              <li><a href="{{route('report.final')}}"><i class="icon-medium icon-check"></i><span>Approved Reports</span>
+            <li><a href="{{route('report.final')}}"><i class="icon-medium icon-check"></i><span>Approved Reports</span>
               </a></li>
-              @endif
+            @endif
           </ul>
         </div>
         <!-- /container -->

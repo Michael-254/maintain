@@ -233,7 +233,7 @@ class MachinesController extends Controller
         if ($machine->type == 'Daily' || $machine->type == 'Weekly') {
             return view('checklist/updateD')->with(['data' => $data, 'machine' => $machine]);
         } else {
-            return view('checklist/updateHourly')->with(['machine' => $machine]);
+            return view('checklist/UpdateHourly')->with(['machine' => $machine]);
         }
     }
 

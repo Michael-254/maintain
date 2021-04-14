@@ -56,7 +56,7 @@
                                 <span class="w-6/12">{{$list->checklist}}</span>
                                 <input type="hidden" name="list[{{$loop->index}}][item]" value="{{$list->checklist}}">
                                 <label class="w-2/12">
-                                    <input type="hidden" name="list[{{$loop->index}}][answer]" value="no">  
+                                    <input type="hidden" name="list[{{$loop->index}}][answer]" value="no">
                                     <input type="checkbox" name="list[{{$loop->index}}][answer]" class="form-checkbox h-5 w-5 text-green-600" value="yes">
                                 </label>
                                 <textarea type="text" placeholder="comment" name="list[{{$loop->index}}][comment]" rows="1" class="px-2 py-1 relative rounded 
@@ -82,7 +82,7 @@
                             <div class="inline-block mt-1 w-1/2 pr-1">
                                 <label class="text-sm font-bold text-gray-600">Date</label>
                                 <input class="form-control rounded bg-gray-600" name="report[date]" type="text" readonly value="{{ date('Y-m-d') }}">
-                                <input  name="report[type]" type="hidden" readonly value="{{$data->hours}}">
+                                <input name="report[type]" type="hidden" readonly value="{{$data->hours}}">
                             </div>
                         </div>
                         <div class="mt-3">

@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <div>
-        @if(session()->has('message'))
+            @if(session()->has('message'))
             <div class="alert alert-success">{{session()->get('message')}}</div>
             @elseif(session()->has('error'))
             <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
@@ -26,17 +26,18 @@
                 </thead>
                 @foreach($machines as $machine)
                 <tr>
-                <form action="{{route('search.list',$machine->id)}}" method="post">
-                   @csrf
-                  <input type="hidden" name="machine_name" value="{{$machine->machine_name}}">
-                    <td>{{$machine->machine_name}}</td>
-                    <td>{{$machine->number_plate}}</td>
-                    <td>{{$machine->worked_hours}}</td>
-                    <input type="hidden" name="type" value="{{$machine->plan}}">
-                    <td>{{$machine->plan}}</td>
-                    <td>{{$machine->plan_hours}}</td>
-                    @if($machine->approved_plan && $machine->completed != TRUE)
-                    <td><button type="submit" class="px-2 py-1 text-white font-light tracking-wider bg-blue-500 rounded">Start</button></td>
+                    <form action="{{route('search.list')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="machine_name" value="{{$machine->machine_name}}">
+                        <input type="hidden" name="number_plate" value="{{$machine->number_plate}}">
+                        <td>{{$machine->machine_name}}</td>
+                        <td>{{$machine->number_plate}}</td>
+                        <td>{{$machine->worked_hours}}</td>
+                        <input type="hidden" name="type" value="{{$machine->plan}}">
+                        <td>{{$machine->plan}}</td>
+                        <td>{{$machine->plan_hours}}</td>
+                        @if($machine->approved_plan && $machine->completed != TRUE)
+                        <td><button type="submit" class="px-2 py-1 text-white font-light tracking-wider bg-blue-500 rounded">Start</button></td>
                     </form>
                     @elseif($machine->approved_plan && $machine->completed == TRUE)
                     <td>Completed</td>
