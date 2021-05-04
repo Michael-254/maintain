@@ -32,7 +32,8 @@
                     <th>Decision</th>
                 </thead>
                 @foreach($machines as $machine)
-                @if($machine->plan_hours < 2) <tr class="bg-red-500">
+                @if($machine->plan_hours < 2)
+                <tr class="bg-red-500">
                     <td>{{$machine->machine_name}}</td>
                     <td>{{$machine->number_plate}}</td>
                     <td>{{$machine->site}}</td>
@@ -42,46 +43,46 @@
                     <td>Yes</td>
                     <td><span class="cursor-pointer text-blue-700" wire:click="edit({{$machine->id}})">Edit</button>
                     </td>
-                    </tr>
-                    @elseif(($machine->plan/10) > $machine->plan_hours)
-                    <tr class="bg-yellow-500">
-                        <td>{{$machine->machine_name}}</td>
-                        <td>{{$machine->number_plate}}</td>
-                        <td>{{$machine->site}}</td>
-                        <td>{{$machine->worked_hours}}</td>
-                        <td>{{$machine->plan}}</td>
-                        <td>{{$machine->plan_hours}}</td>
-                        @if($machine->schedule_status)
-                        <td>Yes</td>
-                        @else
-                        <td>No</td>
-                        @endif
-                        <td><span class="cursor-pointer text-blue-700" wire:click="edit({{$machine->id}})">Edit</button>
-                        </td>
-                    </tr>
+                </tr>
+                @elseif(($machine->plan/10) > $machine->plan_hours)
+                <tr class="bg-yellow-500">
+                    <td>{{$machine->machine_name}}</td>
+                    <td>{{$machine->number_plate}}</td>
+                    <td>{{$machine->site}}</td>
+                    <td>{{$machine->worked_hours}}</td>
+                    <td>{{$machine->plan}}</td>
+                    <td>{{$machine->plan_hours}}</td>
+                    @if($machine->schedule_status)
+                    <td>Yes</td>
                     @else
-
-                    <tr>
-                        <td>{{$machine->machine_name}}</td>
-                        <td>{{$machine->number_plate}}</td>
-                        <td>{{$machine->site}}</td>
-                        <td>{{$machine->worked_hours}}</td>
-                        <td>{{$machine->plan}}</td>
-                        <td>{{$machine->plan_hours}}</td>
-                        @if($machine->schedule_status)
-                        <td>Yes</td>
-                        @else
-                        <td>No</td>
-                        @endif
-                        <td><span class="cursor-pointer text-blue-700" wire:click="edit({{$machine->id}})">Edit</button>
-                        </td>
-                    </tr>
-
-
+                    <td>No</td>
                     @endif
-                    @endforeach
+                    <td><span class="cursor-pointer text-blue-700" wire:click="edit({{$machine->id}})">Edit</button>
+                    </td>
+                </tr>
+                @else
+               
+                <tr>
+                    <td>{{$machine->machine_name}}</td>
+                    <td>{{$machine->number_plate}}</td>
+                    <td>{{$machine->site}}</td>
+                    <td>{{$machine->worked_hours}}</td>
+                    <td>{{$machine->plan}}</td>
+                    <td>{{$machine->plan_hours}}</td>
+                    @if($machine->schedule_status)
+                    <td>Yes</td>
+                    @else
+                    <td>No</td>
                     @endif
-                    </tbody>
+                    <td><span class="cursor-pointer text-blue-700" wire:click="edit({{$machine->id}})">Edit</button>
+                    </td>
+                </tr>
+
+
+                @endif
+                @endforeach
+                @endif
+                </tbody>
             </table>
             <div class="mt-2">
                 {{$machines->links('pagination')}}
@@ -89,35 +90,35 @@
         </section>
         @else
         <div class="flex justify-between text-gray-700 text-sm">
-            <div class="flex ml-1">
-                <span wire:click="back()" class="cursor-pointer" style="line-height: 32px;"><i class="icon-large icon-hand-left"></i> Go back</span>
+                <div class="flex ml-1">
+                    <span wire:click="back()" class="cursor-pointer" style="line-height: 32px;"><i class="icon-large icon-hand-left"></i> Go back</span>
+                </div>
+            </div>
+            <form wire:submit.prevent="update({{$machine_id}})">
+        <div class="flex mt-2">
+            <div class="inline-block mt-1 w-1/3 pr-1">
+                <input type="hidden" wire:model="machine_id">
+                <label class="text-sm font-bold text-gray-600">Machine name</label>
+                <input class="form-control rounded bg-gray-500" wire:model="name" type="text" readonly>
+            </div>
+            <div class="inline-block mt-1 w-1/3 pr-1">
+                <label class="text-sm font-bold text-gray-600">Number Plate</label>
+                <input class="form-control rounded bg-gray-500" wire:model="plate" type="text" readonly>
+            </div>
+            <div class="inline-block mt-1 w-1/3 pr-1">
+                <label class="text-sm font-bold text-gray-600">Upcoming plan</label>
+                <input class="form-control rounded" wire:model.lazy="plan" type="text" required="" placeholder="Upcoming plan">
+                @error('talk') <span class="text-red-500">{{ $message }}</span> @enderror
+            </div>
+            <div class="inline-block mt-1 w-1/3 pr-1">
+                <label class="text-sm font-bold text-gray-600">Hours Remaining</label>
+                <input class="form-control rounded" wire:model.lazy="hours" type="text" required="" placeholder="Hours Remaining">
+                @error('talk') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
         </div>
-        <form wire:submit.prevent="update({{$machine_id}})">
-            <div class="flex mt-2">
-                <div class="inline-block mt-1 w-1/3 pr-1">
-                    <input type="hidden" wire:model="machine_id">
-                    <label class="text-sm font-bold text-gray-600">Machine name</label>
-                    <input class="form-control rounded bg-gray-500" wire:model="name" type="text" readonly>
-                </div>
-                <div class="inline-block mt-1 w-1/3 pr-1">
-                    <label class="text-sm font-bold text-gray-600">Number Plate</label>
-                    <input class="form-control rounded bg-gray-500" wire:model="plate" type="text" readonly>
-                </div>
-                <div class="inline-block mt-1 w-1/3 pr-1">
-                    <label class="text-sm font-bold text-gray-600">Upcoming plan</label>
-                    <input class="form-control rounded" wire:model.lazy="plan" type="text" required="" placeholder="Upcoming plan">
-                    @error('talk') <span class="text-red-500">{{ $message }}</span> @enderror
-                </div>
-                <div class="inline-block mt-1 w-1/3 pr-1">
-                    <label class="text-sm font-bold text-gray-600">Hours Remaining</label>
-                    <input class="form-control rounded" wire:model.lazy="hours" type="text" required="" placeholder="Hours Remaining">
-                    @error('talk') <span class="text-red-500">{{ $message }}</span> @enderror
-                </div>
-            </div>
-            <div class="text-center mt-2">
-                <button class="px-2 py-1 text-white font-light tracking-wider bg-green-900 rounded" type="submit">Update</button>
-            </div>
+        <div class="text-center mt-2">
+            <button class="px-2 py-1 text-white font-light tracking-wider bg-green-900 rounded" type="submit">Update</button>
+        </div>
         </form>
         @endif
     </div>

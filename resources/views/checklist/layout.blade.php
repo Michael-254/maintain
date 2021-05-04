@@ -23,10 +23,10 @@
 
 <body class="font-mono">
   <div class="min-h-screen">
-    <div class="flex w-full justify-between px-4 py-2 bg-gradient-to-l from-green-400 to-green-900 text-white">
+    <div class="flex w-full justify-between px-4 py-2 bg-gradient-to-r from-blue-600 via-green-300 to-green-600 text-white">
       <a href="#" class="flex justify-between">
-        <span class="logo"><img src="{{asset('public/storage/logo.png')}}" alt="Logo Image" height="40" width="40"></span>
-        <span class="p-2 text-blue-500"><b>BETTER GLOBE FORESTRY</b> </span>
+        <span class="logo"><img src="{{asset('/storage/logo.png')}}" alt="Logo Image" height="40" width="40"></span>
+        <span class="p-2 text-white"><b>BETTER GLOBE FORESTRY</b> </span>
       </a>
       <div class="flex px-4 mt-2">
         <div class="dropdown"><a href="#" class="dropdown-toggle text-white" data-toggle="dropdown"><i class="icon-user"></i> {{ Auth::user()->name }}</a>
@@ -82,11 +82,11 @@
             </li>
             <li><a href="{{route('approve.plan')}}"><i class="icon-medium icon-ok"></i><span>Approve Schedules</span>
               </a></li>
-            <li><a href="{{route('report.view')}}"><i class="icon-list-alt "></i><span>Received Reports</span>
+              <li><a href="{{route('report.view')}}"><i class="icon-list-alt "></i><span>Received Reports</span>
               </a></li>
-            <li><a href="{{route('report.final')}}"><i class="icon-medium icon-check"></i><span>Approved Reports</span>
+              <li><a href="{{route('report.final')}}"><i class="icon-medium icon-check"></i><span>Approved Reports</span>
               </a></li>
-            @endif
+              @endif
           </ul>
         </div>
         <!-- /container -->
@@ -105,7 +105,7 @@
     <!-- /main-inner -->
   </div>
   <!-- /main -->
-  <footer class="bg-gradient-to-l from-green-400 to-green-900 p-3 text-white text-center px-4 py-1">
+  <footer class="bg-gradient-to-r from-green-600 via-green-300 to-blue-600 p-3 text-white text-center px-4 py-1">
     Copyright &copy; Better Globe Forestry
   </footer>
   <!-- /footer -->

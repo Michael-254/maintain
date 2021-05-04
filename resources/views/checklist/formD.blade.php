@@ -74,9 +74,9 @@
                             </div>
                             <div class="inline-block mt-1 w-1/3 pr-1">
                                 <label class="text-sm font-bold text-gray-600">Hours to next Schedule</label>
-                                <input type="hidden" id="b" value="{{$machine->worked_hours}}" />
-                                <input type="hidden" id="c" value="" name="result2" />
-                                <input type="hidden" id="d" value="{{$machine->plan_hours}}" />
+                                <input type="hidden" id="b" value="{{$machine->worked_hours}}" /> 
+                                <input type="hidden" id="c" value="" name="result2" /> 
+                                <input type="hidden" id="d" value="{{$machine->plan_hours}}"/> 
                                 <input class="form-control rounded bg-gray-600" name="report[plan_hours]" type="number" readonly value="{{$machine->plan_hours}}">
                             </div>
                             <div class="inline-block mt-1 w-1/3 pr-1">
@@ -87,11 +87,11 @@
                         </div>
 
                         <div class="flex justify-content-center mt-2">
-                            <div class="btn btn-mdb-color btn-rounded float-left">
-                                <input type="file" name="image">
-                            </div>
+                           <div class="btn btn-mdb-color btn-rounded float-left">
+                               <input type="file" name="image">
+                           </div>
                         </div>
-
+                        
                         <div class="mt-3">
                             <button type="submit" class="px-4 py-1 text-white font-light tracking-wider bg-green-900 rounded">Submit</button>
                         </div>
@@ -102,10 +102,9 @@
     </div>
 </div>
 <script>
-    const form = document.forms.form_id;
-    form.onkeyup = () => {
-        form["result2"].value = parseInt(Number(form.a.value)) - parseInt(Number(form.b.value));
-        form["report[plan_hours]"].value = parseInt(Number(form.d.value)) - parseInt(Number(form.c.value))
-    }
+  const form = document.forms.form_id;
+  form.onkeyup = ()=>{
+    form["result2"].value=parseInt(Number(form.a.value))-parseInt(Number(form.b.value));form["report[plan_hours]"].value=parseInt(Number(form.d.value))-parseInt(Number(form.c.value))
+  }
 </script>
 @endsection

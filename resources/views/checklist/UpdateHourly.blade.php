@@ -73,11 +73,11 @@
                         </section>
                         <div class="flex">
                             <div class="inline-block mt-1 w-1/2 pr-1">
-                                <label class="text-sm font-bold text-gray-600">Next Maintainance</label>
+                                <label class="text-sm font-bold text-gray-600">Next Hourly Maintainance Name</label>
                                 <input class="form-control rounded bg-gray-600" name="plan" type="number" value="{{$machine->plan}}">
                             </div>
                             <div class="inline-block mt-1 w-1/2 pr-1">
-                                <label class="text-sm font-bold text-gray-600">Hours to next Maintainance</label>
+                                <label class="text-sm font-bold text-gray-600">Hours Remaining to next Hourly Maintainance</label>
                                 <input class="form-control rounded bg-gray-600" name="plan_hours" type="number" value="{{$machine->plan_hours}}">
                             </div>
                         </div>

@@ -43,8 +43,8 @@ class Checklist extends Component
         $comment->checklist()->create([
             'checklist' => $this->list,
         ]);
-        $this->post = 0;
         $this->list = "";
+        $this->post = 0;
         $this->search = "";
         session()->flash('message', 'List added Successfully.');
     }

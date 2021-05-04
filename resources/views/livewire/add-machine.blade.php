@@ -46,8 +46,8 @@
     </div>
 
     <div class="inline-block mt-2 w-full pr-1">
-        <label class="text-sm font-bold text-gray-600">Worked Hours</label>
-        <input class="form-control rounded" wire:model.debounce.500ms="worked_hours" type="text" required="" placeholder="Worked hours">
+        <label class="text-sm font-bold text-gray-600">Worked Hours/KM</label>
+        <input class="form-control rounded" wire:model.debounce.500ms="worked_hours" type="text" required="" placeholder="Worked hours/KM">
         @error('worked_hours') <span class="text-red-500">{{ $message }}</span> @enderror
     </div>
     <div class="flex mt-2">

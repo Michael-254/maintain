@@ -1,20 +1,26 @@
 @extends('checklist.layout')
 
 @section('content')
+<style>
+    .fc-title {
+        font-size: 0.8rem;
+        color: black;
+    }
+</style>
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.css' />
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-        <div>
-            @if(session()->has('message'))
-            <div class="alert alert-success">{{session()->get('message')}}</div>
-            @elseif(session()->has('error'))
-            <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
-            @endif
-        </div>
+                <div>
+                    @if(session()->has('message'))
+                    <div class="alert alert-success">{{session()->get('message')}}</div>
+                    @elseif(session()->has('error'))
+                    <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
+                    @endif
+                </div>
                 <div class="card-header">
-                    <div class="flex justify-between"> 
+                    <div class="flex justify-between">
                         <h5>Scheduled Maintainance</h5>
                         <span class="font-bold"><a href="{{route('myreports')}}">My Reports</a></span>
                     </div>
@@ -37,10 +43,12 @@
                 @foreach($tasks as $task) {
                     title: '{{ $task->machine_name }}',
                     start: '{{ $task->date }}',
-                    @if($task->type == 'Daily')
-                    url: '{{route('daily.plan')}}',
+                    @if($task - > type == 'Daily')
+                    url: '{{route('
+                    daily.plan ')}}',
                     @else
-                    url: '{{route('weekly.plan')}}',
+                    url: '{{route('
+                    weekly.plan ')}}',
                     @endif
                 },
                 @endforeach

@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <div>
-            @if(session()->has('message'))
+        @if(session()->has('message'))
             <div class="alert alert-success">{{session()->get('message')}}</div>
             @elseif(session()->has('error'))
             <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
@@ -13,7 +13,7 @@
         @if($post == 0)
         <div class="w-full mx-1">
             <input wire:model.debounce.300ms="search" type="text" class="appearance-none block w-1/4 bg-gray-200 text-gray-700 border 
-            border-gray-200 rounded py-3 px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Search Checklist...">
+            border-gray-200 rounded py-3 px-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"placeholder="Search Checklist...">
         </div>
         <section class="m-1 p-2 w-12/12 flex flex-col rounded border p-1 sm:pt-0">
             <h1 class="font-bold text-xl text-center text-green-900">Available Checklists</h1>
@@ -47,12 +47,12 @@
 
         @if($post == 1)
         <div class="flex justify-between text-gray-700 text-sm">
-            <div class="flex ml-1">
-                <span wire:click="back()" class="cursor-pointer" style="line-height: 32px;"><i class="icon-large icon-hand-left"></i> Go back</span>
-            </div>
-            <div class="text-xs mr-1">
-                <button class="px-2 py-1 text-white font-light tracking-wider bg-blue-500 rounded" wire:click="addlist({{$machine_id}})">Add</button>
-            </div>
+          <div class="flex ml-1">
+            <span wire:click="back()" class="cursor-pointer" style="line-height: 32px;"><i class="icon-large icon-hand-left"></i> Go back</span>
+          </div>
+          <div class="text-xs mr-1">
+          <button class="px-2 py-1 text-white font-light tracking-wider bg-blue-500 rounded" wire:click="addlist({{$machine_id}})">Add</button>       
+          </div>
         </div>
         <section class="m-1 p-2 w-full border rounded">
             <div class="rounded border py-3">
@@ -75,8 +75,7 @@
                     </div>
                     <div class="text-xs mr-1">
                         <p class="cursor-pointer text-red-700">
-                            <i onclick="confirm('Are you sure of Deleting?') || event.stopImmediatePropagation()" wire:click="delete({{$list->id}})" class="icon-large icon-remove"></i>
-                        </p>
+                            <i onclick="confirm('Are you sure of Deleting?') || event.stopImmediatePropagation()" wire:click="delete({{$list->id}})" class="icon-large icon-remove"></i></p>
                     </div>
                 </div>
                 @endforeach
@@ -86,9 +85,9 @@
 
         @if($post == 2)
         <div class="flex justify-between text-gray-700 text-sm">
-            <div class="flex ml-1">
-                <span wire:click="back()" class="cursor-pointer" style="line-height: 32px;"><i class="icon-large icon-hand-left"></i> Go back</span>
-            </div>
+          <div class="flex ml-1">
+            <span wire:click="back()" class="cursor-pointer" style="line-height: 32px;"><i class="icon-large icon-hand-left"></i> Go back</span>
+          </div>
         </div>
         <section class="m-1 p-2 w-full border rounded">
             <div class="rounded border py-3">
@@ -102,32 +101,32 @@
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="form-group">
-                    <fieldset>
-                        <h5 class="mt-2 ml-1">Items to check</h5>
-                        <small id="choicesHelp" class="form-text text-muted ml-1">Give your items to check on this specific Maintainance Name</small>
-                        <div class="mt-2">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div>
-                                        <div class="input-group  ml-1">
-                                            <form wire:submit.prevent="newlist({{$machine_id}})">
-                                                <div>
+                            <fieldset>
+                                <h5 class="mt-2 ml-1">Items to check</h5>
+                                <small id="choicesHelp" class="form-text text-muted ml-1">Give your items to check on this specific Maintainance Name</small>
+                                <div class="mt-2">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div>
+                                                <div class="input-group  ml-1">
+                                                    <form wire:submit.prevent="newlist({{$machine_id}})">
+                                                    <div>
                                                     <input wire:model.lazy="list" type="text" class="form-control" placeholder="Enter item">
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                    </form>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="submit" class="btn btn-success">Submit</button>
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                    </fieldset>
-                </div>
+                            </fieldset>
+                        </div>
 
             </div>
         </section>
@@ -135,3 +134,6 @@
 
     </div>
 </div>
+
+
+

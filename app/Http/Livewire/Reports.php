@@ -92,13 +92,8 @@ class Reports extends Component
     public function render()
     {
         return view('livewire.reports', [
-            'comments' => Report::where('status', '=', 'pending')
-                ->when($this->search != '', function($query) {
-                    $query->Where([['machine_name', 'like', '%'.$this->search.'%'],['status', '=', 'pending']])
-                    ->orWhere([['number_plate', 'like', '%'.$this->search.'%'],['status', '=', 'pending']])
-                    ->orWhere([['owner', 'like', '%'.$this->search.'%'],['status', '=', 'pending']])
-                    ->orWhere([['type', 'like', '%'.$this->search.'%'],['status', '=', 'pending']]);
-                })
+            'comments' => Report::search($this->search)
+                ->where('status', '=', 'pending')
                 ->orderBy('date', 'DESC')
                 ->Paginate(10)
         ]);
