@@ -11,7 +11,7 @@ class ViewMachines extends Component
     use WithPagination;
     public $search = '';
     public $post = 0;
-    public $plan, $hours,$name,$plate,$machine_id;
+    public $plan, $hours,$name,$plate,$machine_id,$milage;
 
 
     public function edit($id)
@@ -21,6 +21,7 @@ class ViewMachines extends Component
         $this->plate = $machine->number_plate;
         $this->plan = $machine->plan;
         $this->hours = $machine->plan_hours;
+        $this->milage = $machine->worked_hours;
         $this->machine_id = $id;
         $this->post = 1;
     }
@@ -36,6 +37,7 @@ class ViewMachines extends Component
         $validatedDate = $this->validate([
             'plan' => 'required',
             'hours' => 'required',
+            'milage' => 'required'
         ]);
 
         if ($this->machine_id) {
@@ -43,10 +45,9 @@ class ViewMachines extends Component
             $machine->update([
                 'plan' => $this->plan,
                 'plan_hours' => $this->hours,
+                'worked_hours' => $this->milage,
             ]);
-            $this->post = 0;
-            $this->plan = "";
-            $this->hours = "";
+            $this->reset();
             session()->flash('message', 'Machine Updated Successfully.');
         }
     }

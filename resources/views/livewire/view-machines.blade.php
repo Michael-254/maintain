@@ -106,14 +106,19 @@
                 <input class="form-control rounded bg-gray-500" wire:model="plate" type="text" readonly>
             </div>
             <div class="inline-block mt-1 w-1/3 pr-1">
+                <label class="text-sm font-bold text-gray-600">Milage</label>
+                <input class="form-control rounded" wire:model.lazy="milage" type="text" required="" placeholder="Upcoming plan">
+                @error('milage') <span class="text-red-500">{{ $message }}</span> @enderror
+            </div>
+            <div class="inline-block mt-1 w-1/3 pr-1">
                 <label class="text-sm font-bold text-gray-600">Upcoming plan</label>
                 <input class="form-control rounded" wire:model.lazy="plan" type="text" required="" placeholder="Upcoming plan">
-                @error('talk') <span class="text-red-500">{{ $message }}</span> @enderror
+                @error('plan') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
             <div class="inline-block mt-1 w-1/3 pr-1">
                 <label class="text-sm font-bold text-gray-600">Hours Remaining</label>
                 <input class="form-control rounded" wire:model.lazy="hours" type="text" required="" placeholder="Hours Remaining">
-                @error('talk') <span class="text-red-500">{{ $message }}</span> @enderror
+                @error('hours') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="text-center mt-2">

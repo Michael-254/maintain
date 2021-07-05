@@ -43,12 +43,10 @@
                 @foreach($tasks as $task) {
                     title: '{{ $task->machine_name }}',
                     start: '{{ $task->date }}',
-                    @if($task - > type == 'Daily')
-                    url: '{{route('
-                    daily.plan ')}}',
+                    @if($task->type == 'Daily')
+                    url: '{{route('daily.plan')}}',
                     @else
-                    url: '{{route('
-                    weekly.plan ')}}',
+                    url: '{{route('weekly.plan')}}',
                     @endif
                 },
                 @endforeach
