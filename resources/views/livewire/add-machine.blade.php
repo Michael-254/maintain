@@ -30,6 +30,11 @@
                 <option value="Pickup">Pick Up</option>
                 <option value="Fielder">Fielder</option>
                 <option value="Landcruiser">Landcruiser</option>
+                <option value="Brush Cutters">Brush Cutters</option>
+                <option value="Slashers">Slashers</option>
+                <option value="Welding Machine">Welding Machine</option>
+                <option value="Power Saw1">Power Saw1</option>
+                <option value="Power Saw2">Power Saw2</option>
             </select>
             @error('machine_name') <span class="text-red-500">{{ $message }}</span> @enderror
         </div>
